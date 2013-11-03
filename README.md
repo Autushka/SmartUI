@@ -1,4 +1,4 @@
 SmartUI
 =======
 
-Java Script UI controls library
+Java Script UI controls library.
