@@ -28,6 +28,7 @@
 		              <insertNewLine>true</insertNewLine>
 		              <output>${project.build.directory}/${project.build.finalName}/js/smartui-minified.js</output>
 		              <includes>
+		                <include>**/basicControl.js</include>
 		                <include>**/*.js</include>
 		              </includes>
 		            </aggregation>
