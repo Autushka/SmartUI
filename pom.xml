@@ -26,7 +26,7 @@
 		          <aggregations>
 		            <aggregation>
 		              <insertNewLine>true</insertNewLine>
-		              <output>${project.build.directory}/${project.build.finalName}/js/smartui-minified.js</output>
+		              <output>${project.build.directory}/${project.build.finalName}/js/${project.artifactId}-${project.version}-minified.js</output>
 		              <includes>
 		                <include>**/basicControl.js</include>
 		                <include>**/*.js</include>
@@ -34,7 +34,7 @@
 		            </aggregation>
 		            <aggregation>
 		              <insertNewLine>true</insertNewLine>
-		              <output>${project.build.directory}/${project.build.finalName}/css/smartui-compressed.css</output>
+		              <output>${project.build.directory}/${project.build.finalName}/css/${project.artifactId}-${project.version}-compressed.css</output>
 		              <includes>
 		                <include>**/*.css</include>
 		              </includes>
