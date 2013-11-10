@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+<!-- 	<script src="//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>	 -->
+
+	<script src="js/prototype.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.i18n.properties-min.js"></script>	
+	
+	<script src="js/constants.js"></script>
+	<script src="js/functions.js"></script>	
+	
+	<link rel="stylesheet" type="text/css" href="css/controls.css"	/>	
+	<link rel="stylesheet" type="text/css" href="css/main.css"	/>		
+	
+	<script src="js/controls/basicControl.js"></script>
+	<script src="js/controls/labelControl.js"></script>
+	<script src="js/controls/horizontalLayoutControl.js"></script>
+	<script src="js/controls/verticalLayoutControl.js"></script>
+	<script src="js/controls/buttonControl.js"></script>
+	<script src="js/controls/viewControl.js"></script>
+	<script src="js/controls/imageControl.js"></script>
+	<script src="js/controls/inputFieldControl.js"></script>
+	<script src="js/controls/checkBoxControl.js"></script>
+	<script src="js/controls/radioButtonControl.js"></script>
+	<script src="js/controls/textAreaControl.js"></script>
+	<script src="js/controls/htmlControl.js"></script>
+	<script src="js/controls/dropDownBoxControl.js"></script>
+	<script src="js/controls/tabControl.js"></script>
+	<script src="js/controls/panelControl.js"></script>
+	<script src="js/controls/audioControl.js"></script>
+	<script src="js/controls/notificationMessageControl.js"></script>
+	<script src="js/controls/wrapperControl.js"></script>
+	<script src="js/controls/htmlEditorControl.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+</body>
+</html>
+
+<script>
+ $(document).ready(function(){
+	var oVL = new cVerticalLayoutControl("verticalLayout", {});
+	
+	var oLabel = new cLabelControl("labelControl", {text: "MyLabel"});
+	var oButton = new cButtonControl("buttonControl", {text: "MyButton"});	
+	oButton.onClick(oButton, function(){alert("myButton was clicked")});
+	var oCheckBox = new cCheckBoxControl("checkBoxControl", {label: "MyCheckBox", name:"MyCheckBox"});
+	var oImage = new cImageControl("imageControl", {url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSD_tCvCEBUJOpo9Qa7ESLdzWFX6saRzE3cPeUza-Z1vEk5kyPaBQ"});	
+	
+	var oTabHeader1 = new cLabelControl("tabHeader1", {text: "tabHeader1"});
+	var oTabHeader2 = new cLabelControl("tabHeader2", {text: "tabHeader2"});
+	
+	var oTabContent1 = new cLabelControl("tabContent1", {text: "tabContent1"});
+	var oTabContent2 = new cLabelControl("tabContent2", {text: "tabContent2"});	
+	
+	var oTabContent1VL = new cVerticalLayoutControl("tabContent1VL", {content: [oTabContent1]});
+	var oTabContent2VL = new cVerticalLayoutControl("tabContent2VL", {content: [oTabContent2]});	
+	
+	var oTab = new cTabControl("myTab",{
+		  headers: [oTabHeader1, oTabHeader2],
+		  content: [oTabContent1, oTabContent2],
+		  selectedIndex: 0
+	});	
+	
+	
+	oVL.addContent([oLabel, oButton, oCheckBox, oImage, oTab]);
+	
+	oVL.placeAt("content");
+});
+</script>
