@@ -3,14 +3,16 @@ SmartUI
 
 Java Script UI controls library.
 
-1. Upload Maven Project;
-2. Create local Dynamic Web Project;
-3. Rewrite content of the WebContent folder of the 
-created Dynamic Web Project in step 2 with content of the folder src->web_app of the Project uploaded in step 1;
-4. Run on Server project created in the step 2. Make changes in this Project;
-5. To commit your changes update content of the folder src->web_app of the Project uploaded in step 1 
-with content of the folder WebContent of the Project created in step 2 and update
-files controls.css and *Control.js in src->main of the Project uploaded in step 1
-with appropiate files from the Project created in step 2;
-6. To generate minimazed css and js files of the library do Run As->Maven Install of the Maven Project uploaded in step 1
-7. Push to Upstream Project uploaded in step 1.
+Prerequisite:
+-Eclipse with EGit
+-Maven Plugin for Eclipse
+
+
+1. In Git Repository Exploring use Clone Repository with URL https://github.com/Autushka/SmartUI.git;
+2. In your Eclipse Project Explorer import existing Maven project form Users->Your User->git (in case of Windows, local path can be different);
+3. To see controls examples run project on your local server;
+4. Make changes in controls.css and *Control.js in core folder;
+5. To get minimized css and js file do Maven Install for the project.
+
+
+
