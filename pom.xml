@@ -32,6 +32,7 @@
 		              <insertNewLine>true</insertNewLine>
 		              <output>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}-minified.js</output>
 		              <includes>
+		                <include>constants.js</include>		              
 		                <include>basicControl.js</include>
 		                <include>*.js</include>
 		              </includes>

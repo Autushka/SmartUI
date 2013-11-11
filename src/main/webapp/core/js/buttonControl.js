@@ -34,7 +34,7 @@ cButtonControl.prototype = Object.extend(new cBasicControl(), {
 		sHtml = sHtml + ">";
 		if(this.getTextCode() !== ""){
 			var aClone = this.textCodeParameters.slice(0);// copy of the array...
-			sHtml = sHtml + CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
+			sHtml = sHtml + UI_CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
 		}
 		else
 		{
@@ -48,7 +48,7 @@ cButtonControl.prototype = Object.extend(new cBasicControl(), {
 	getText: function(){
 		if(this.getTextCode() !== ""){
 			var aClone = this.textCodeParameters.slice(0);
-			return CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
+			return UI_CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
 		}
 		else{
 			return this.text;

@@ -19,7 +19,7 @@ cNotificationMessageControl.prototype = Object.extend(new cBasicControl(), {
 			this.textCodeParameters = obj.textCodeParameters;
 		}	
 		
-		this.duration = CONSTANTS.defaultNotificationMessageDuration;
+		this.duration = UI_CONSTANTS.defaultNotificationMessageDuration;
 		if(obj && obj.duration){
 			this.duration = obj.duration;
 		}		
@@ -49,7 +49,7 @@ cNotificationMessageControl.prototype = Object.extend(new cBasicControl(), {
 			if(this.textCodeParameters){
 				aClone = this.textCodeParameters.slice(0);// copy of the array...
 			}
-			sHtml = sHtml + CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
+			sHtml = sHtml + UI_CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
 		}
 		else
 		{
@@ -62,7 +62,7 @@ cNotificationMessageControl.prototype = Object.extend(new cBasicControl(), {
 	getText: function(){
 		if(this.getTextCode() !== ""){
 			var aClone = this.textCodeParameters.slice(0);
-			return CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
+			return UI_CONSTANTS.fnTextCodesHandeler(this.getTextCode(), aClone);
 		}
 		else{
 			return this.text;

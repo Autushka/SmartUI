@@ -45,7 +45,7 @@ cPanelControl.prototype = Object.extend(new cBasicControl(), {
 	getHeaderText: function(){
 		if(this.getHeaderTextCode() !== ""){
 			var aClone = this.headerTextCodeParameters.slice(0);
-			return CONSTANTS.fnTextCodesHandeler(this.getHeaderTextCode(), aClone);
+			return UI_CONSTANTS.fnTextCodesHandeler(this.getHeaderTextCode(), aClone);
 		}
 		else{
 			return this.headerText;

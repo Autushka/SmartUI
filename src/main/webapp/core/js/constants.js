@@ -1,4 +1,4 @@
-var CONSTANTS = (function ($) {
+var UI_CONSTANTS = (function ($) {
 	var constants = {};
 	// General Constants 
 	constants.defaultUILanguage = 'en';

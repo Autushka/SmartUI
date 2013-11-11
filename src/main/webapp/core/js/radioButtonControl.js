@@ -43,7 +43,7 @@ cRadioButtonControl.prototype = Object.extend(new cBasicControl(), {
 		sHtml = sHtml + "<span>";
 		if(this.getLabelCode() !== ""){
 			var aClone = this.labelCodeParameters.slice(0);// copy of the array...
-			sHtml = sHtml + CONSTANTS.fnTextCodesHandeler(this.getLabelCode(), aClone);
+			sHtml = sHtml + UI_CONSTANTS.fnTextCodesHandeler(this.getLabelCode(), aClone);
 		}
 		else
 		{
