@@ -21,22 +21,26 @@
                     </execution>
                 </executions>
                 <configuration>
-          			<!-- <failOnWarning>true</failOnWarning> -->
-                    <nosuffix>true</nosuffix>
+          		  <!-- <failOnWarning>true</failOnWarning> -->
+                  <nosuffix>true</nosuffix>
+                  <excludes>
+                    <exclude>**/prototype.js</exclude>
+                    <exclude>**/jquery.i18n.properties-min.js</exclude>
+                  </excludes>
 		          <aggregations>
 		            <aggregation>
 		              <insertNewLine>true</insertNewLine>
-		              <output>${project.build.directory}/${project.build.finalName}/js/${project.artifactId}-${project.version}-minified.js</output>
+		              <output>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}-minified.js</output>
 		              <includes>
-		                <include>**/basicControl.js</include>
-		                <include>**/*.js</include>
+		                <include>basicControl.js</include>
+		                <include>*.js</include>
 		              </includes>
 		            </aggregation>
 		            <aggregation>
 		              <insertNewLine>true</insertNewLine>
-		              <output>${project.build.directory}/${project.build.finalName}/css/${project.artifactId}-${project.version}-compressed.css</output>
+		              <output>${project.build.directory}/${project.build.finalName}/core/css/${project.artifactId}-${project.version}-compressed.css</output>
 		              <includes>
-		                <include>**/*.css</include>
+		                <include>*.css</include>
 		              </includes>
 		            </aggregation>
 		          </aggregations>
