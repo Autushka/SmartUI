@@ -3,6 +3,8 @@ SmartUI
 
 Java Script UI controls library.
 
+Demo: http://autushka.github.io/SmartUI/
+
 Prerequisite:
 -Eclipse with EGit
 -Maven Plugin for Eclipse
