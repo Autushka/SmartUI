@@ -22,7 +22,7 @@
                 </executions>
                 <configuration>
           		  <!-- <failOnWarning>true</failOnWarning> -->
-                  <nosuffix>true</nosuffix>
+                  <!-- <nosuffix>true</nosuffix> -->
                   <excludes>
                     <exclude>**/prototype.js</exclude>
                     <exclude>**/jquery.i18n.properties-min.js</exclude>
@@ -30,16 +30,16 @@
 		          <aggregations>
 		            <aggregation>
 		              <insertNewLine>true</insertNewLine>
-		              <output>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}-minified.js</output>
+		              <output>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}-min.js</output>
 		              <includes>
-		                <include>constants.js</include>		              
-		                <include>basicControl.js</include>
+		                <include>constants-min.js</include>		              
+		                <include>basicControl-min.js</include>
 		                <include>*.js</include>
 		              </includes>
 		            </aggregation>
 		            <aggregation>
 		              <insertNewLine>true</insertNewLine>
-		              <output>${project.build.directory}/${project.build.finalName}/core/css/${project.artifactId}-${project.version}-compressed.css</output>
+		              <output>${project.build.directory}/${project.build.finalName}/core/css/${project.artifactId}-${project.version}-min.css</output>
 		              <includes>
 		                <include>*.css</include>
 		              </includes>
@@ -47,6 +47,81 @@
 		          </aggregations>
                 </configuration>
             </plugin>
+	     	<plugin>
+		       <groupId>org.apache.maven.plugins</groupId>
+		       <artifactId>maven-install-plugin</artifactId>
+		       <version>2.5.1</version>
+	            <executions>  
+	              <execution>          
+	                <id>install-js-min</id>  
+	                <phase>install</phase>  
+	                <goals>  
+	                  <goal>install-file</goal>  
+	                </goals>  
+	                <configuration>  
+	                  <groupId>${project.groupId}</groupId>
+	                  <artifactId>${project.artifactId}</artifactId>
+	                  <version>${project.version}</version>
+	                  <packaging>js</packaging>
+	                  <file>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}-min.js</file>
+	                  <classifier>min</classifier>
+	                </configuration>          
+	              </execution>
+	              <execution>          
+	                <id>install-css-min</id>  
+	                <phase>install</phase>  
+	                <goals>  
+	                  <goal>install-file</goal>  
+	                </goals>  
+	                <configuration>  
+	                  <groupId>${project.groupId}</groupId>
+	                  <artifactId>${project.artifactId}</artifactId>
+	                  <version>${project.version}</version>
+	                  <packaging>css</packaging>
+	                  <file>${project.build.directory}/${project.build.finalName}/core/css/${project.artifactId}-${project.version}-min.css</file>
+	                 <classifier>min</classifier>
+	                </configuration>          
+	              </execution>
+	            </executions>  
+     		</plugin>
+	        <plugin>
+	          <artifactId>maven-deploy-plugin</artifactId>
+	          <!-- -DaltDeploymentRepository=snapshot-repo::default::file:target/mvn-repo/snapshots clean deploy -->
+	          <executions>  
+	            <execution>          
+	              <id>deploy-js-min</id>  
+	              <phase>deploy</phase>  
+	              <goals>  
+	                <goal>deploy-file</goal>  
+	              </goals>  
+	              <configuration>  
+	                <groupId>${project.groupId}</groupId>
+	                <artifactId>${project.artifactId}</artifactId>
+	                <version>${project.version}</version>
+	                <packaging>js</packaging>
+	                <file>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}-min.js</file>
+	                <classifier>min</classifier>
+	                <url>file:target/mvn-repo/snapshots</url>
+	              </configuration>
+	            </execution>
+	            <execution>          
+	              <id>deploy-css-min</id>  
+	              <phase>deploy</phase>  
+	              <goals>  
+	                <goal>deploy-file</goal>  
+	              </goals>  
+	              <configuration>  
+	                <groupId>${project.groupId}</groupId>
+	                <artifactId>${project.artifactId}</artifactId>
+	                <version>${project.version}</version>
+	                <packaging>css</packaging>
+	                <file>${project.build.directory}/${project.build.finalName}/core/css/${project.artifactId}-${project.version}-min.css</file>
+	                <classifier>min</classifier>
+	                <url>file:target/mvn-repo/snapshots</url>
+	              </configuration>
+	            </execution>
+	          </executions>
+	        </plugin>
 		</plugins>
 	</build>
   
