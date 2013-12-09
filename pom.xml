@@ -2,8 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>modern.box</groupId>
   <artifactId>smartui</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.2</version>
   <packaging>war</packaging>
+  
+	<properties>
+		<altDeploymentRepository>snapshot-repo::default::${deployPath}</altDeploymentRepository>
+	</properties>
 
 	<build>
 		<plugins>
@@ -202,7 +206,7 @@
 	                <version>${project.version}</version>
 	                <packaging>js</packaging>
 	                <file>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}.js</file>
-	                <url>file:target/mvn-repo/snapshots</url>
+	                <url>${deployPath}</url>
 	              </configuration>
 	            </execution>
 	            <execution>          
@@ -218,7 +222,7 @@
 	                <packaging>js</packaging>
 	                <file>${project.build.directory}/${project.build.finalName}/core/js/${project.artifactId}-${project.version}-min.js</file>
 	                <classifier>min</classifier>
-	                <url>file:target/mvn-repo/snapshots</url>
+	                <url>${deployPath}</url>
 	              </configuration>
 	            </execution>
 	            <execution>          
@@ -233,7 +237,7 @@
 	                <version>${project.version}</version>
 	                <packaging>css</packaging>
 	                <file>${project.build.directory}/${project.build.finalName}/core/css/${project.artifactId}-${project.version}.css</file>
-	                <url>file:target/mvn-repo/snapshots</url>
+	                <url>${deployPath}</url>
 	              </configuration>
 	            </execution>
 	            <execution>          
@@ -249,12 +253,11 @@
 	                <packaging>css</packaging>
 	                <file>${project.build.directory}/${project.build.finalName}/core/css/${project.artifactId}-${project.version}-min.css</file>
 	                <classifier>min</classifier>
-	                <url>file:target/mvn-repo/snapshots</url>
+	                <url>${deployPath}</url>
 	              </configuration>
 	            </execution>
 	          </executions>
 	        </plugin>
 		</plugins>
 	</build>
-  
 </project>
